@@ -335,11 +335,33 @@
 
  <!-- Sección de audio -->
  <div class="audio-player">
-  <audio  autoplay controls>
+  <audio  id="miAudio" controls autoplay >
     <source src="amarillas.mp3" type="audio/mpeg">
     Tu navegador no soporta el elemento de audio.
   </audio>
 </div>
+
+<script>
+  // Selecciona el elemento de audio
+  const audio = document.getElementById('miAudio');
+
+  // Función para reproducir audio
+  function reproducirAudio() {
+      audio.play().catch(error => {
+          console.log('Error al intentar reproducir el audio:', error);
+      });
+  }
+
+  // Añadir un evento de clic en el documento
+  document.addEventListener('click', function() {
+      reproducirAudio();
+  });
+
+  // Para dispositivos táctiles
+  document.addEventListener('touchstart', function() {
+      reproducirAudio();
+  });
+</script>
 
 
 
